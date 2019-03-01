@@ -1,28 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <BaseTextInput 
+      v-for="field in $root.fields" 
+      :id="field.id" 
+      :label="field.label" 
+      :key="field.id" 
+      v-model="field.value" />
+    <BaseCheckbox 
+      v-for="setting in $root.settings" 
+      :key="setting.id" 
+      :id="setting.id" 
+      :label="setting.label" 
+      v-model="setting.value" 
+      :true-value="true"
+      :false-value="false"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BaseTextInput from './components/forms/BaseTextInput.vue'
+import BaseCheckbox from './components/forms/BaseCheckbox.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    BaseTextInput,
+    BaseCheckbox
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
