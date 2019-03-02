@@ -7,8 +7,8 @@
             :checked="checked"
             v-on:change="$emit('change', $event.target.checked)"
         >{{label}}</label>
-        <BaseAlert v-if="checked===true" isSuccess>Great! This is <strong>{{checked}}</strong>.</BaseAlert>
-        <BaseAlert v-else isError>Oh, dear. This is <strong>{{checked}}</strong></BaseAlert>       
+        <BaseAlert v-if="checked===true" isInfo>Great! This is <strong>{{checked}}</strong>.</BaseAlert>
+        <BaseAlert v-else isWarning>Oh, dear. This is <strong>{{checked}}</strong></BaseAlert>       
     </div>
 </template>
 

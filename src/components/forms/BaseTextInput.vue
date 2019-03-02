@@ -7,8 +7,8 @@
             :type="type"
             v-on:input="$emit('input', $event.target.value)"
         >
-        <BaseAlert v-if="value" isSuccess>You are entering <strong>{{value}}</strong>.</BaseAlert>
-        <BaseAlert v-else isError>Nothing entered.</BaseAlert>         
+        <BaseAlert v-if="value" isInfo>You have entered <strong>{{value}}</strong>.</BaseAlert>
+        <BaseAlert v-else isWarning>Nothing entered.</BaseAlert>         
     </div>
 </template>
 

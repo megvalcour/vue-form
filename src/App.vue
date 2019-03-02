@@ -2,6 +2,7 @@
   <div id="app">
     <LayoutHeader heading="Vue Form">
     </LayoutHeader>
+    <BaseForm>
     <BaseFieldset legend="Personal Information">
       <BaseTextInput 
         v-for="field in $root.fields" 
@@ -18,7 +19,7 @@
       :label="setting.label" 
       v-model="setting.value" />
     </BaseFieldset>
-    <BaseFieldset legend="Choose some fruits">
+    <BaseFieldset legend="Choose some options">
     <BaseSelect 
       v-for="fruit in $root.fruits"
       :key="fruit.id"
@@ -27,7 +28,16 @@
       :options="$root.fruitOptions"
       v-model="fruit.value"  
       />
+    <BaseSelectMulti 
+      v-for="book in $root.books"
+      :key="book.id"
+      :id="book.id"
+      :label="book.label"
+      :options="$root.bookOptions"
+      v-model="book.value"  
+      />
     </BaseFieldset>
+    </BaseForm>
       <LayoutFooter>
         <p slot="left">Thanks for checking out Vue Forms!</p>
         <p slot="right">And here's another piece of content.</p>
@@ -40,6 +50,8 @@ import BaseTextInput from './components/forms/BaseTextInput.vue'
 import BaseCheckbox from './components/forms/BaseCheckbox.vue'
 import BaseSelect from './components/forms/BaseSelect.vue'
 import BaseFieldset from './components/forms/BaseFieldset.vue'
+import BaseSelectMulti from './components/forms/BaseSelectMulti'
+import BaseForm from './components/forms/BaseForm.vue'
 
 import LayoutHeader from './components/layout/LayoutHeader.vue'
 import LayoutFooter from './components/layout/LayoutFooter.vue'
@@ -47,13 +59,14 @@ import LayoutFooter from './components/layout/LayoutFooter.vue'
 export default {
   name: 'app',
   components: {
+    BaseForm,
     BaseTextInput,
     BaseCheckbox,
     BaseSelect,
+    BaseSelectMulti,
     BaseFieldset,
     LayoutHeader,
     LayoutFooter
-
   }
 }
 </script>

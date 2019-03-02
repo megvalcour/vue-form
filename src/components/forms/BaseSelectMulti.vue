@@ -1,16 +1,18 @@
 <template>
     <div class="form-group">
         <label>{{label}}</label>
-        <select
+        <select 
+            multiple
             :id="id"
-            :value="value"
-            v-on:change="$emit('change', $event.target.value)"
+            v-model="selected"
+            v-on:change="$emit('change', selected)"
         >
-            <option value="">Please select one</option>
             <option v-for="{optionValue, optionDisplay} in options" :value="optionValue" :key="optionValue">{{optionDisplay}}</option>   
         </select>
-        <BaseAlert v-if="value" isInfo>You have selected <strong>{{value}}</strong>.</BaseAlert>
+        <BaseAlert v-if="selected.length" isInfo>You have selected <strong>{{selected}}</strong>.</BaseAlert>
         <BaseAlert v-else isWarning>Nothing selected.</BaseAlert>
+        <BaseAlert v-if="hasIssue" isError></BaseAlert>
+        <BaseAlert v-else isSuccess>No errors here!</BaseAlert>
     </div>
 </template>
 
@@ -26,12 +28,19 @@ export default {
     props: {
         label: String,
         id: String,
-        value: String,
+        value: Array,
         options: Array
     },
     components: {
         BaseAlert
-    }
+    },
+    data() {
+        return {
+            hasIssue: false,
+            selected: this.value
+        }
+    },
+    
 }
 </script>
 

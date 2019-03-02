@@ -1,5 +1,5 @@
 <template>
-    <dialog open :class="{warning : isError, success : isSuccess}">
+    <dialog open :class="{warning : isWarning, success : isSuccess, info : isInfo, error : isError}">
         <slot></slot>
     </dialog>
 </template>
@@ -8,7 +8,9 @@
 export default {
     props: {
         isError: Boolean,
-        isSuccess: Boolean
+        isSuccess: Boolean,
+        isInfo: Boolean,
+        isWarning: Boolean
     }
 }
 </script>
@@ -24,11 +26,19 @@ export default {
     }
 
     .warning {
-        background-color: #FE7C73;
-        border: 1px solid #E7574E;
+        background-color: #f9fab2;
+        border: 1px solid #e4d447;
     }
     .success {
-        background-color: rgb(197, 235, 197);
-        border: rgb(53, 175, 53);
+        background-color: #c5ebc5;
+        border: #35af35;
+    }
+    .info {
+        background-color: #97d3d3;
+        border: 1px solid #1cbebe
+    }
+    .error {
+        background-color: #FE7C73;
+        border: 1px solid #E7574E;
     }
 </style>

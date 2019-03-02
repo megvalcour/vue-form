@@ -3,8 +3,8 @@ import App from './App.vue'
 
 var data = {
   fields: [
-    {value: "Megan", label: "First Name", id: "keyFirstName"},
-    {value: "Valcour", label: "Last Name", id: "keyLastName"},
+    {value: "Aeryn", label: "First Name", id: "keyFirstName"},
+    {value: "Sun", label: "Last Name", id: "keyLastName"},
     {value: "", label: "Email", id: "keyEmail"},
     {value: "", label: "Phone", id: "keyPhone"},
     {value: "", label: "Website", id: "keyWebsite"}
@@ -18,10 +18,22 @@ var data = {
   ],
   fruitOptions: [
     {optionValue: "apple", optionDisplay: "Apple"},
-    {optionValue: "pear", optionDisplay: "pear"},
-    {optionValue: "grape", optionDisplay: "grape"},
+    {optionValue: "pear", optionDisplay: "Pear"},
+    {optionValue: "grape", optionDisplay: "Grape"},
     {optionValue: "orange", optionDisplay: "Orange"}
-
+  ],
+  books: [
+    {value: ["go"], label: "Pick multiple books", id: "keyBook"}
+  ],
+  bookOptions: [
+    {optionValue: "hp", optionDisplay: "Harry Potter"},
+    {optionValue: "go", optionDisplay: "Good Omens"},
+    {optionValue: "heart", optionDisplay: "The Heart is a Lonely Hunter"},
+    {optionValue: "sk", optionDisplay: "Skinny Legs and All"},
+    {optionValue: "js", optionDisplay: "Anything by Jose Saramago"},
+    {optionValue: "tttc", optionDisplay: "The Things They Carried"},
+    {optionValue: "foundation", optionDisplay: "The Foundation Trilogy"},
+    {optionValue: "tsar", optionDisplay: "The Sun Also Rises"}
   ]
 }
 

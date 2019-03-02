@@ -16,8 +16,8 @@ export default {
 <style scoped>
 
 fieldset {
-    display: inline-block;
-    margin: 3rem 0 0 3rem;
+    display: block;
+    margin: 3rem;
     border: none;
     background-color: #f3f7fc;
 }
