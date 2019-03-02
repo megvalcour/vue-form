@@ -4,19 +4,30 @@
         <input
             :id="id"
             type="checkbox"
-            :value="value"
-            v-on:input="$emit('input', $event.target.value)"
+            :checked="checked"
+            v-on:change="$emit('change', $event.target.checked)"
         >{{label}}</label>
-        <small>You are entering {{value}}</small>          
+        <BaseAlert v-if="checked===true" isSuccess>Great! This is <strong>{{checked}}</strong>.</BaseAlert>
+        <BaseAlert v-else isError>Oh, dear. This is <strong>{{checked}}</strong></BaseAlert>       
     </div>
 </template>
 
 <script>
+
+import BaseAlert from '../utilities/BaseAlert.vue'
+
 export default {
+    components: {
+        BaseAlert
+    },
+    model: {
+        prop: 'checked',
+        event: 'change'
+    },
     props: {
         id: String,
         label: String,
-        value: [Boolean, String, Number],
+        checked: Boolean
     }
 }
 </script>
@@ -28,10 +39,7 @@ export default {
         padding: 1rem;
     }
     label {
-        display: block;
-        text-align: left;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 1rem;
+        display: inline-block;
     }
     input {
         padding: 1em;

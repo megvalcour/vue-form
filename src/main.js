@@ -12,6 +12,16 @@ var data = {
   settings: [
     {value: true, label: "This is checked on load", id: "keyLoadCheck"},
     {value: false, label: "This is unchecked on load", id: "keyLoadUncheck"}
+  ],
+  fruits: [
+    {value: "", label: "Pick a fruit", id: "keyFruit"}
+  ],
+  fruitOptions: [
+    {optionValue: "apple", optionDisplay: "Apple"},
+    {optionValue: "pear", optionDisplay: "pear"},
+    {optionValue: "grape", optionDisplay: "grape"},
+    {optionValue: "orange", optionDisplay: "Orange"}
+
   ]
 }
 

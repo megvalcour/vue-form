@@ -7,12 +7,23 @@
             :type="type"
             v-on:input="$emit('input', $event.target.value)"
         >
-        <small>You are entering {{value}}</small>          
+        <BaseAlert v-if="value" isSuccess>You are entering <strong>{{value}}</strong>.</BaseAlert>
+        <BaseAlert v-else isError>Nothing entered.</BaseAlert>         
     </div>
 </template>
 
 <script>
+
+import BaseAlert from '../utilities/BaseAlert.vue'
+
 export default {
+    components: {
+        BaseAlert
+    },
+    model: {
+        prop: 'value',
+        event: 'input'
+    },
     props: {
         id: String,
         label: String,
@@ -32,8 +43,6 @@ export default {
     label {
         display: block;
         text-align: left;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 1rem;
     }
     input {
         padding: 1em;
