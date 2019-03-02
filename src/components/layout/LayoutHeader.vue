@@ -27,7 +27,8 @@ header {
 
 h1 {
     font-size: 1.8em;
-    font-weight: 600;
+    font-weight: 300;
+    letter-spacing: .2rem;
 }
 
 </style>
