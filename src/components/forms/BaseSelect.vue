@@ -35,7 +35,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     .form-group {
         display: block;
         text-align: left;
