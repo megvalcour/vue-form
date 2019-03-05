@@ -3,11 +3,11 @@ import App from './App.vue'
 
 var data = {
   fields: [
-    {value: "Aeryn", label: "First Name", id: "keyFirstName"},
-    {value: "Sun", label: "Last Name", id: "keyLastName"},
-    {value: "", label: "Email", id: "keyEmail"},
-    {value: "", label: "Phone", id: "keyPhone"},
-    {value: "", label: "Website", id: "keyWebsite"}
+    {value: "Aeryn", label: "First Name", type: "text", id: "keyFirstName"},
+    {value: "Sun", label: "Last Name", type: "text", id: "keyLastName"},
+    {value: "", label: "Email", type: "email", id: "keyEmail"},
+    {value: "", label: "Phone", type: "phone", id: "keyPhone"},
+    {value: "", label: "Website", type: "url", id: "keyWebsite"}
   ],
   settings: [
     {value: true, label: "This is checked on load", id: "keyLoadCheck"},
@@ -23,7 +23,12 @@ var data = {
     {optionValue: "orange", optionDisplay: "Orange"}
   ],
   books: [
-    {value: ["go"], label: "Pick multiple books", id: "keyBook"}
+    {value: ["go"], label: "Pick multiple books", id: "keyBooks"}
+  ],
+  bookSingle: [
+    {value: "", label: "Favorite Book", id: "keyFavoriteBook"},
+    {value: "", label: "Least Favorite Book", id: "keyLeastFavoriteBook"}
+
   ],
   bookOptions: [
     {optionValue: "hp", optionDisplay: "Harry Potter"},

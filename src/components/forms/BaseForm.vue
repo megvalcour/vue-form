@@ -1,5 +1,5 @@
 <template>
-    <form :action="action" :method="method">
+    <form :action="{ GET : isGet, POST : isPost} " :method="method">
         <slot></slot>
     </form>
 </template>
@@ -7,7 +7,8 @@
 <script>
 export default {
     props: {
-        action: String,
+        isGet: Boolean,
+        isPost: Boolean,
         method: String
     }
 }

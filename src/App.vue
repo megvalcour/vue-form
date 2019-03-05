@@ -2,16 +2,17 @@
   <div id="app">
     <LayoutHeader heading="Vue Form">
     </LayoutHeader>
-    <BaseForm>
+    <BaseForm isPost action="/form-response">
     <BaseFieldset legend="Personal Information">
       <BaseTextInput 
+        isRequired
         v-for="field in $root.fields" 
         :id="field.id" 
         :label="field.label" 
         :key="field.id" 
         v-model="field.value" />
-      </BaseFieldset>
-    <BaseFieldset legend="Some select options">
+    </BaseFieldset>
+    <BaseFieldset legend="Check Some Boxes">
     <BaseCheckbox 
       v-for="setting in $root.settings" 
       :key="setting.id" 
@@ -19,7 +20,7 @@
       :label="setting.label" 
       v-model="setting.value" />
     </BaseFieldset>
-    <BaseFieldset legend="Choose some options">
+    <BaseFieldset legend="Select Some Options">
     <BaseSelect 
       v-for="fruit in $root.fruits"
       :key="fruit.id"
@@ -36,6 +37,18 @@
       :options="$root.bookOptions"
       v-model="book.value"  
       />
+    <div v-for="single in $root.bookSingle" :key="single.id">
+      <strong>{{single.label}}</strong>
+      <BaseRadio 
+      v-for="option in $root.bookOptions"
+      :key="option.optionValue"
+      :id="option.optionValue"
+      :label="option.optionDisplay"
+      v-model="single.value"
+      :name="single.id"
+    />
+    <BaseAlert isInfo>The value for this radio is {{$root.bookSingle.value}}</BaseAlert>
+    </div>
     </BaseFieldset>
     </BaseForm>
       <LayoutFooter>
@@ -52,6 +65,9 @@ import BaseSelect from './components/forms/BaseSelect.vue'
 import BaseFieldset from './components/forms/BaseFieldset.vue'
 import BaseSelectMulti from './components/forms/BaseSelectMulti'
 import BaseForm from './components/forms/BaseForm.vue'
+import BaseRadio from './components/forms/BaseRadio.vue'
+
+import BaseAlert from './components/utilities/BaseAlert.vue'
 
 import LayoutHeader from './components/layout/LayoutHeader.vue'
 import LayoutFooter from './components/layout/LayoutFooter.vue'
@@ -62,9 +78,11 @@ export default {
     BaseForm,
     BaseTextInput,
     BaseCheckbox,
+    BaseRadio,
     BaseSelect,
     BaseSelectMulti,
     BaseFieldset,
+    BaseAlert,
     LayoutHeader,
     LayoutFooter
   }

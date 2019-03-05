@@ -11,8 +11,6 @@
         </select>
         <BaseAlert v-if="selected.length" isInfo>You have selected <strong>{{selected}}</strong>.</BaseAlert>
         <BaseAlert v-else isWarning>Nothing selected.</BaseAlert>
-        <BaseAlert v-if="hasIssue" isError></BaseAlert>
-        <BaseAlert v-else isSuccess>No errors here!</BaseAlert>
     </div>
 </template>
 
